@@ -1,0 +1,47 @@
+ul.accordion {
+  > li {
+    background-color: #fff;
+
+    svg {
+      transition: 200ms;
+    }
+
+    > header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 2rem 2rem 2rem;
+      cursor: pointer;
+      border-bottom: 1px solid #e6e6e6;
+
+      h3 {
+        font-size: 2rem;
+        font-family: 'TT Med';
+      }
+
+      &:hover {
+        > h3 {
+          color: $gray;
+        }
+        svg {
+          color: $gray;
+        }
+      }
+    }
+
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transform-origin: top;
+      transform: scaleY(0);
+      padding: 2rem 2rem 0 2rem;
+      transition: all 150ms ease-out; 
+    }
+
+    .open {
+      max-height: none;
+      transform: scaleY(1); 
+      padding-bottom: 2rem;
+    }
+  }
+}

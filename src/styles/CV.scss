@@ -1,0 +1,120 @@
+.cv-cont {
+  width: 65%;
+  margin-left: auto;
+
+  .cv {
+    background: linear-gradient(120deg, #ffffff 40%, #d9d9d9);
+    width: 61.2rem;
+    height: 80rem;
+    border-radius: 3rem;
+    padding: 5rem;
+    // transform: scale(1);
+    transform-origin: top right;
+    margin: 3rem auto;
+
+    
+
+    .big-item {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        display: flex;
+        margin-bottom: 0.5rem;
+
+        .position {
+          font-family: 'TT';
+        }
+
+        span {
+          margin-left: 0.9rem;
+          margin-right: 0.9rem;
+          font-size: $h2-size;
+        }
+      }
+
+      a {
+        color: black;
+        // text-decoration: underline;
+      }
+
+      .date {
+        text-transform: uppercase;
+        color: $lighter-gray;
+        margin-bottom: 0.8rem;
+        font-family: 'TT';
+      }
+
+      .description {
+        color: $gray;
+      }
+    }
+
+    h3.small{
+      font-size: 1rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+
+      .left {
+        display: block;
+        max-width: 29rem;
+
+        p {
+          font-size: $h2-size;
+          color: $lighter-gray;
+          max-width: 26rem;
+          font-family: 'TT';
+        }
+      }
+
+      img {
+        width: 9rem;
+        height: 9rem;
+        border-radius: 5rem;
+        background-color: black;
+        margin-right: 2rem;
+      }
+    }
+
+    h2 {
+      color: $lighter-gray;
+      margin-bottom: 1.3rem;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 3fr 4fr;
+      gap: 5rem;
+      position: relative;
+      .startCV {
+        position: absolute;
+        font-size: 6rem;
+        margin-top: 3rem;
+        width: 85%;
+        background: linear-gradient(90deg, #d5d5d5, #b4b4b4);
+        background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+}
+
+.cv-cont .cv section ul li,
+.cv-cont > .cv > header
+ {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cv-cont .cv section ul li.visible,
+.cv-cont > .cv > header.visible
+ {
+	opacity: 1;
+	transform: translateY(0);
+}

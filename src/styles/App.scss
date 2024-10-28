@@ -1,0 +1,228 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+a,
+a:link,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+aside,
+nav,
+footer,
+header,
+section,
+main {
+	display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+ul,
+ul li {
+	list-style: none;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+img,
+svg {
+	max-width: 100%;
+	height: auto;
+}
+
+address {
+	font-style: normal;
+}
+
+input,
+textarea,
+button,
+select {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button,
+input[type='submit'] {
+	display: inline-block;
+	box-shadow: none;
+	background-color: transparent;
+	background: none;
+	cursor: pointer;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+	outline: none;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	display: block;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+@font-face {
+	font-family: 'TT';
+	src: url('../assets/SuisseIntl-Regular.otf');
+}
+@font-face {
+	font-family: 'TT Med';
+	src: url('../assets/SuisseIntl-Medium.otf');
+}
+@font-face {
+	font-family: 'TT Semi';
+	src: url('../assets/SuisseIntl-SemiBold.otf');
+}
+@font-face {
+	font-family: 'TT Light';
+	src: url('../assets/SuisseIntl-Light.otf');
+}
+
+body {
+	background: linear-gradient(#323235, #242427);
+	font-family: 'TT';
+}
+
+#root {
+	display: flex;
+	position: relative;
+}
+
+button {
+	border: 2px solid #f17a1f;
+	padding: 1.5rem 2rem;
+	border-radius: 1rem;
+	font-size: 1.4rem;
+	color: #d66025;
+	font-family: 'TT Med';
+	transition: all 200ms ease;
+	background: linear-gradient(90deg, #ffd8c0, #fff8f4 100%);
+	background-size: 190%;
+	background-position: 100% 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.icon {
+		margin-right: 0.8rem; 
+		margin-bottom: 1px;
+		font-size: 1.2em;  
+	}
+
+	&:not(:disabled):hover {
+		background-position: 0 0; 
+	}
+
+	&.add {
+		width: 100%;
+		color: white;
+		background: linear-gradient(90deg, #f13f3f, #f19147);
+		border: none;
+		padding: 2rem;
+		background-size: 130%;
+		background-position: 0 0;
+	}
+
+	&.add:not(:disabled):hover {
+		background-position: 100% 0;
+	}
+
+	&.delete {
+		border: none;
+		background: none;
+		padding: 1rem;
+    margin-top: -1rem;
+    margin-right: -1rem;
+		color: #f13f3f;
+		transition: 200ms;
+
+		&:not(:disabled):hover {
+			// color: #f18847;
+      background-color: #fff3f2;
+		}
+	}
+
+  &.section{
+    margin: 0;
+  }
+
+  &.delete.orange{
+    color: #f17a1f;
+
+    &:hover {
+      background-color: #fff5f2;
+
+    }
+  }
+}
+
+
+h1 {
+	font-size: $h1-size;
+	font-family: 'TT Semi';
+	margin-bottom: 0.5rem;
+}
+
+h2 {
+	font-size: $h2-size;
+	font-family: 'TT Semi';
+}
+
+h3 {
+	font-size: $h2-size;
+	font-family: 'TT Semi';
+}
+
+p {
+	font-size: $p-size;
+	font-family: 'TT Light';
+  line-height: 130%;
+}
+

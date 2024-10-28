@@ -1,0 +1,131 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+
+  
+  
+  header{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sep {
+    height: 1px;
+    background-color: #e6e6e6;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  button {
+    align-self: flex-end;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    list-style: none;
+
+    li,
+    .text {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      column-gap: 2rem;
+
+      label {
+        color: $lighter-gray;
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        text-transform: uppercase;
+      }
+
+      textarea {
+        resize: none;
+        min-height: 9rem;
+      }
+
+      input,
+      textarea,
+      button.grey {
+        padding: 1.5rem 1.6rem;
+        border: 1px solid rgba(37, 37, 37, 0.1);
+        background: none;
+        background-color: rgb(244, 244, 244);
+        border-radius: 1rem;
+        width: 100%;
+        transition: 200ms;
+        font-size: 1.4rem;
+
+        &:disabled {
+          cursor: auto;
+          opacity: 0.6;
+        }
+
+        &:not(:disabled):hover {
+          background: rgb(235, 235, 235);
+        }
+
+        &:focus {
+          outline: 0.2rem solid rgba(255, 134, 100, 0.276);
+          border: 0.1rem solid rgb(255, 113, 74);
+        }
+      }
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:active,
+      .filled, .filled:active {
+        -webkit-box-shadow: 0 0 0 30px rgb(252, 243, 241) inset !important;
+        border: 0.1rem solid rgb(239, 208, 199);
+        background-color: rgb(252, 243, 241);
+
+      }
+
+      input:-webkit-autofill:hover, .filled:hover{
+        -webkit-box-shadow: 0 0 0 30px rgb(247, 238, 236) inset !important;
+        background-color: rgb(247, 238, 236) !important;
+      }
+      input:-webkit-autofill:focus, .filled:focus{
+        border: 0.1rem solid rgb(255, 113, 74);
+      }
+    }
+
+    button.grey {
+      background-color: rgb(244, 244, 244);
+      height: auto;
+      align-self: flex-end;
+      width: fit-content !important;
+    }
+
+    .row {
+      flex-direction: row;
+    }
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
