@@ -5,8 +5,6 @@ form {
   gap: 2.5rem;
   margin-bottom: 3rem;
 
-  
-  
   header{
     display: flex;
     justify-content: space-between;
@@ -97,7 +95,7 @@ form {
 
     button.grey {
       background-color: rgb(244, 244, 244);
-      height: auto;
+      height: 5.4rem;
       align-self: flex-end;
       width: fit-content !important;
     }
@@ -106,26 +104,4 @@ form {
       flex-direction: row;
     }
   }
-}
-
-.fade-enter {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms, transform 300ms;
-}
-
-.fade-exit {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 300ms, transform 300ms;
 }

@@ -8,11 +8,9 @@
     height: 80rem;
     border-radius: 3rem;
     padding: 5rem;
-    // transform: scale(1);
     transform-origin: top right;
     margin: 3rem auto;
-
-    
+    position: relative;
 
     .big-item {
       margin-bottom: 2rem;
@@ -51,8 +49,18 @@
       }
     }
 
-    h3.small{
+    h3.small {
       font-size: 1rem;
+    }
+
+    .startCV {
+      position: absolute;
+      font-size: 6rem;
+      margin-top: 7rem;
+      width: 85%;
+      background: linear-gradient(90deg, #d5d5d5, #b4b4b4);
+      background-clip: text;
+      color: transparent;
     }
 
     header {
@@ -90,31 +98,6 @@
       display: grid;
       grid-template-columns: 3fr 4fr;
       gap: 5rem;
-      position: relative;
-      .startCV {
-        position: absolute;
-        font-size: 6rem;
-        margin-top: 3rem;
-        width: 85%;
-        background: linear-gradient(90deg, #d5d5d5, #b4b4b4);
-        background-clip: text;
-        color: transparent;
-      }
     }
   }
-}
-
-.cv-cont .cv section ul li,
-.cv-cont > .cv > header
- {
-	opacity: 0;
-	transform: translateY(20px);
-	transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.cv-cont .cv section ul li.visible,
-.cv-cont > .cv > header.visible
- {
-	opacity: 1;
-	transform: translateY(0);
 }
