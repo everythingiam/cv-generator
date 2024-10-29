@@ -38,7 +38,7 @@ export default function FormsTemplate({
         <h3>
           {labels.count} {index + 1}
         </h3>
-        <button className="delete" onClick={() => deleteItem(id)}>
+        <button type="reset" className="delete" onClick={() => deleteItem(id)}>
           Delete {labels.count} {index + 1}
         </button>
       </header>

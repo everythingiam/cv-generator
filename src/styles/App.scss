@@ -40,6 +40,10 @@ p {
 	font-weight: inherit;
 }
 
+::selection{
+	background: #f17a1f;
+	color: white;
+}
 ul,
 ul li {
 	list-style: none;
@@ -225,4 +229,60 @@ p {
 	font-family: 'TT Light';
   line-height: 130%;
 }
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: translateY(-40px);
+	}
+	100%{
+		transform: translate(0);
+		opacity: 1;
+	}
+}
+
+@keyframes fade-out {
+	0%{
+		opacity: 1;
+		transform: 0;
+	}
+
+	100%{
+		transform: translateY(-40px);
+		opacity: 0;
+	}
+}
+
+.fade-exit-active{
+	animation: fade-out 300ms forwards;
+	transition: opacity 250ms ease, transform 300ms ease;
+}
+
+.fade-enter-active{
+	animation: fade-in 300ms forwards;
+	transition: opacity 300ms ease, transform 300ms ease;
+}
+
+// .fade-enter {
+//   opacity: 0;
+//   transform: translateY(-40px); // Начальное состояние перед добавлением
+// }
+
+// .fade-enter-active {
+//   opacity: 1;
+//   transform: translateY(0);
+//   transition: opacity 800ms ease, transform 800ms ease; // Обеспечивает плавное появление
+// }
+
+// .fade-exit {
+//   opacity: 1;
+//   transform: translateY(0); // Начальное состояние перед удалением
+// }
+
+// .fade-exit-active {
+//   opacity: 0;
+//   transform: translateY(-40px);
+//   transition: opacity 800ms ease, transform 800ms ease; // Обеспечивает плавное исчезновение
+// }
+
 

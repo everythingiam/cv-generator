@@ -1,16 +1,9 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment } from 'react';
 
 export default function CVItem({ data, topic }) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     data.title && (
-      <li className={`big-item ${isVisible && 'visible'}`}>
+      <li className={`big-item`}>
         {topic === 'Projects' ? (
           <a className="title" target="_blank" href={data.link}>
             <h3>{data.title}</h3>

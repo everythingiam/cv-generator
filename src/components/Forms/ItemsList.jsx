@@ -1,7 +1,7 @@
 import FormsTemplate from './FormsTemplate';
 import { v4 as uuidv4 } from 'uuid';
 import { FiPlus } from 'react-icons/fi';
-// import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default function ItemsList({ labels, handleForm, data }) {
   const addNewItem = () => {
@@ -15,19 +15,27 @@ export default function ItemsList({ labels, handleForm, data }) {
 
   return (
     <>
-      {data.map((item, index) => (
-        <FormsTemplate
+      <TransitionGroup>
+        {data.map((item, index) => (
+          <CSSTransition
           key={item.id}
-          handleForm={handleForm}
-          index={index}
-          labels={labels}
-          deleteItem={() => deleteItem(item.id)}
-          itemData={item}
-        />
-      ))}
-      <button type="button" className="add" onClick={addNewItem}>
-        <FiPlus className="icon" /> Add {labels.button}
-      </button>
+          timeout={300}
+          classNames={'fade'}
+          unmountOnExit
+          >
+            <FormsTemplate
+              handleForm={handleForm}
+              index={index}
+              labels={labels}
+              deleteItem={() => deleteItem(item.id)}
+              itemData={item}
+            />
+          </CSSTransition>
+        ))}
+        <button type="button" className="add" onClick={addNewItem}>
+          <FiPlus className="icon" /> Add {labels.button}
+        </button>
+      </TransitionGroup>
     </>
   );
 }
