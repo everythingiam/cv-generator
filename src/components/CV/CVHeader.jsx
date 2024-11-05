@@ -1,6 +1,6 @@
 import { CSSTransition } from 'react-transition-group';
 
-export default function CVHeader({ data }) {
+export default function CVHeader({ data}) {
   const isImage = data.image !== '' && data.image;
   const headerStyle = !isImage ? { marginBottom: '4rem' } : {};
 

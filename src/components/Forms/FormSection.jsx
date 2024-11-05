@@ -38,11 +38,9 @@ export default function FormSection({
       </article>
       <FormsList data={data} handleForm={handleForm} />
 
-      <div className="github">
-        <a href="https://github.com/everythingiam/cv-generator" target="_blank">
-          Watch on Github <span style={{ marginTop: '-1px' }}>→</span>
-        </a>
-      </div>
+      <a href="https://github.com/everythingiam/cv-generator" target="_blank">
+        Watch on Github <span style={{ marginTop: '-1px' }}>→</span>
+      </a>
     </div>
   );
 }

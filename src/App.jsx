@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './styles/App.scss';
+import './styles/CV.scss';
 import CV from './components/CV/CV';
 import FormSection from './components/Forms/FormSection';
 import autoData from './components/autoData';
@@ -9,7 +10,7 @@ import structure from './dataStructure';
 function App() {
   const [data, setData] = useState(() => {
     const savedData = localStorage.getItem('formData');
-    const parsedData = savedData ? JSON.parse(savedData) : structure;
+    const parsedData = savedData ? JSON.parse(savedData) : autoData;
 
     return {
       ...structure,
@@ -19,28 +20,35 @@ function App() {
 
   const handleForm = (section, updatedSectionData) => {
     setData((prev) => {
-      
-      if ( Array.isArray(updatedSectionData)) {
-        return { ...prev, [section]: { ...prev[section], data: updatedSectionData } };
+      if (Array.isArray(updatedSectionData)) {
+        return {
+          ...prev,
+          [section]: { ...prev[section], data: updatedSectionData },
+        };
       }
 
-      if (section === 'generalInfo'){
+      if (section === 'generalInfo') {
         return { ...prev, [section]: updatedSectionData };
       }
-  
+
       const existingIndex = prev[section].data.findIndex(
         (item) => item.id === updatedSectionData.id
       );
-  
+
       if (existingIndex !== -1) {
         const updatedData = [...prev[section].data];
         updatedData[existingIndex] = updatedSectionData;
         return { ...prev, [section]: { ...prev[section], data: updatedData } };
       }
-  
-      return { ...prev, [section]: { ...prev[section], data: [...prev[section].data, updatedSectionData] } };
-    });
 
+      return {
+        ...prev,
+        [section]: {
+          ...prev[section],
+          data: [...prev[section].data, updatedSectionData],
+        },
+      };
+    });
   };
 
   useEffect(() => {
@@ -70,7 +78,7 @@ function App() {
         autoFill={autoFill}
         handlePrint={reactToPrintFn}
       />
-      <CV data={data} reference={contentRef}/>
+      <CV data={data} refer={contentRef}/>
     </>
   );
 }

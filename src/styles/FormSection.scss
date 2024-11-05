@@ -48,25 +48,27 @@
     color: black;
   }
 
-  .github {
-    padding: 5rem 2rem 4rem 2rem;
+  a {
+    font-size: 2.2rem;
+    // margin-bottom: 7rem;
+    color: $gray;
+    display: flex;
+    transition: 200ms;
+    width: 100%;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    justify-content: start;
 
-    a {
-      font-size: 2.2rem;
-      // margin-bottom: 7rem;
-      color: $gray;
+    span {
       transition: 200ms;
+      margin-left: 7px;
+    }
+    &:hover {
+      color: black;
 
       span {
-        transition: 200ms;
-        margin-left: 3px;
-      }
-      &:hover {
-        color: black;
-
-        span {
-          margin-left: 8px;
-        }
+        margin-left: 11px;
       }
     }
   }
@@ -83,8 +85,13 @@
       font-size: 4rem;
     }
 
-    p{
+    p {
       margin-bottom: 6rem;
+    }
+
+    a{
+    justify-content: flex-end;
+    margin-bottom: 7rem;
     }
 
     article {

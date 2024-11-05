@@ -46,7 +46,7 @@ const autoData = {
         start: 'sep 2024',
         end: 'now',
         description:
-          'I run all the things: design · frontend · backend · project-managment.',
+          'I run all the things: design · frontend · backend · project-managment',
       },
       {
         id: 'm18design',
@@ -55,7 +55,7 @@ const autoData = {
         start: 'jan 2024',
         end: 'jul 2024',
         description:
-          'I designed components for major real estate developers websites · assisted with design concepts · drew apartment layouts · and had delicious lunches.',
+          'I designed components for major real estate developers websites · assisted with design concepts · drew apartment layouts · and had a lot of fun',
       },
       {
         id: 'optica',
