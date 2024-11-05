@@ -92,7 +92,7 @@ const autoData = {
       },
     ],
     labels: {
-      ount: 'Achievement ',
+      count: 'Achievement ',
       sectionName: 'achieves',
       button: 'achieve',
       title: 'Achievement name',

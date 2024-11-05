@@ -7,7 +7,8 @@ export default function GeneralInfo({ handleForm, data }) {
   const [image, setImage] = useState(data.image || '');
   const [contact, setContact] = useState(data.contact || '');
   const [fileInputKey, setFileInputKey] = useState(Date.now());
-
+  const [error, setError] = useState('');
+  
   useEffect(() => {
     setName(data.name || '');
     setDescription(data.description || '');
@@ -35,8 +36,9 @@ export default function GeneralInfo({ handleForm, data }) {
 
   const deleteImage = () => {
     setImage('');
-    handleForm('generalInfo', { name, description, image: '' });
+    handleForm('generalInfo', { name, description, image: '', contact });
     setFileInputKey(Date.now());
+    setError(''); 
   };
 
   const handleImageUpload = (e) => {
@@ -48,12 +50,21 @@ export default function GeneralInfo({ handleForm, data }) {
         'image/jpg',
         'image/webp',
       ];
+      
+      const sizeLimit = 8 * 1024 * 1024; 
+
       if (allowedTypes.includes(file.type)) {
+        if (file.size > sizeLimit) {
+          setError('The photo is too large. Please upload a smaller image.');
+          return; 
+        }
+
         const reader = new FileReader();
         reader.onload = () => {
           const imageData = reader.result;
           setImage(imageData);
           handleForm('generalInfo', { name, description, image: imageData, contact });
+          setError(''); 
         };
         reader.readAsDataURL(file);
       } else {
@@ -63,6 +74,16 @@ export default function GeneralInfo({ handleForm, data }) {
       }
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError('');
+      }, 3000); 
+
+      return () => clearTimeout(timer); 
+    }
+  }, [error]);
 
   return (
     <form action="" onSubmit={(e) => e.preventDefault()}>
@@ -125,6 +146,7 @@ export default function GeneralInfo({ handleForm, data }) {
           </button>
         </li>
       </ul>
+      {error && <p className="error-message">{error}</p>} 
     </form>
   );
 }

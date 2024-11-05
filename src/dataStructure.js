@@ -3,7 +3,7 @@ const structure = {
     name: '',
     description: '',
     image: '',
-    contact: ''
+    contact: '',
   },
   education: {
     data: [],
@@ -34,7 +34,7 @@ const structure = {
   achieves: {
     data: [],
     labels: {
-      ount: 'Achievement ',
+      count: 'Achievement ',
       sectionName: 'achieves',
       button: 'achieve',
       title: 'Achievement name',
