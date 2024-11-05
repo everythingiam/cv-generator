@@ -2,7 +2,17 @@ import '../../styles/FormSection.scss';
 import FormsList from './FormsList';
 import { FiDownload, FiEdit3, FiDelete } from 'react-icons/fi';
 
-export default function FormSection({ handleForm, data, clearCV, autoFill }) {
+export default function FormSection({
+  handleForm,
+  data,
+  clearCV,
+  autoFill,
+  handlePrint,
+}) {
+  // const exportToPDF = () => {
+  //   const element = document.querySelector('.cv');
+  //   print();
+  // }
 
   return (
     <div className="form-section">
@@ -12,8 +22,8 @@ export default function FormSection({ handleForm, data, clearCV, autoFill }) {
         </h1>
         <p>Fill the forms below. Your CV will be dynamically updated.</p>
         <div className="buttons">
-          <button className="add section">
-            <FiDownload color="white" className='icon'/>
+          <button className="add section" onClick={handlePrint}>
+            <FiDownload color="white" className="icon" />
             PDF
           </button>
           <button className="delete section" onClick={() => clearCV()}>
@@ -27,6 +37,12 @@ export default function FormSection({ handleForm, data, clearCV, autoFill }) {
         </div>
       </article>
       <FormsList data={data} handleForm={handleForm} />
+
+      <div className="github">
+        <a href="https://github.com/everythingiam/cv-generator" target="_blank">
+          Watch on Github <span style={{ marginTop: '-1px' }}>→</span>
+        </a>
+      </div>
     </div>
   );
 }

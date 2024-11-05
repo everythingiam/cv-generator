@@ -17,6 +17,7 @@ ul.accordion {
       h3 {
         font-size: 2rem;
         font-family: 'TT Med';
+        transition: 200ms;
       }
 
       &:hover {
@@ -35,12 +36,12 @@ ul.accordion {
       transform-origin: top;
       transform: scaleY(0);
       padding: 2rem 2rem 0 2rem;
-      transition: all 150ms ease-out; 
+      transition: all 150ms ease-out;
     }
 
     .open {
       max-height: none;
-      transform: scaleY(1); 
+      transform: scaleY(1);
       padding-bottom: 2rem;
     }
   }

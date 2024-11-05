@@ -47,4 +47,48 @@
     margin-bottom: 7rem;
     color: black;
   }
+
+  .github {
+    padding: 5rem 2rem 4rem 2rem;
+
+    a {
+      font-size: 2.2rem;
+      // margin-bottom: 7rem;
+      color: $gray;
+      transition: 200ms;
+
+      span {
+        transition: 200ms;
+        margin-left: 3px;
+      }
+      &:hover {
+        color: black;
+
+        span {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .form-section {
+    width: 100%;
+    max-width: 55rem;
+  }
+
+  .form-section {
+    h1 {
+      font-size: 4rem;
+    }
+
+    p{
+      margin-bottom: 6rem;
+    }
+
+    article {
+      padding: 2rem;
+    }
+  }
 }

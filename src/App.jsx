@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './styles/App.scss';
 import CV from './components/CV/CV';
 import FormSection from './components/Forms/FormSection';
 import autoData from './components/autoData';
+import { useReactToPrint } from 'react-to-print';
 
 function App() {
   const emptyStructure = {
@@ -21,7 +22,7 @@ function App() {
   const [data, setData] = useState(() => {
     const savedData = localStorage.getItem('formData');
     const parsedData = savedData ? JSON.parse(savedData) : emptyStructure;
-  
+
     return {
       ...emptyStructure,
       ...parsedData,
@@ -47,14 +48,14 @@ function App() {
       return { ...prev, [section]: [...prev[section], updatedSectionData] };
     });
   };
-  
+
   useEffect(() => {
     localStorage.setItem('formData', JSON.stringify(data));
   }, [data]);
 
   useEffect(() => {
     console.log('Данные - ', data);
-  }, [data])
+  }, [data]);
   const clearCV = () => {
     setData(emptyStructure);
   };
@@ -63,6 +64,9 @@ function App() {
     setData(autoData);
   };
 
+  const contentRef = useRef(null);
+  const reactToPrintFn = useReactToPrint({ contentRef });
+
   return (
     <>
       <FormSection
@@ -70,8 +74,9 @@ function App() {
         data={data}
         clearCV={clearCV}
         autoFill={autoFill}
+        handlePrint={reactToPrintFn}
       />
-      <CV data={data} />
+      <CV data={data} reference={contentRef}/>
     </>
   );
 }

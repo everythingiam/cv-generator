@@ -2,11 +2,9 @@ import CVItem from './CVItem';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default function CVItemsList({ title, data }) {
-  const isFull = data.length > 0;
-
   return (
     <CSSTransition
-      in={isFull}
+      in={data.length > 0}
       timeout={300}
       classNames="fade"
       unmountOnExit

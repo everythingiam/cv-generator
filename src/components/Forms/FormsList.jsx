@@ -9,8 +9,8 @@ const sectionLabels = {
     button: 'education',
     title: 'Name of the institution or course',
     position: 'Degree',
-    start: 'Start year of study',
-    end: 'End year of study',
+    start: 'Start year',
+    end: 'End year',
     description: 'Description',
   },
   experience: {
@@ -19,8 +19,8 @@ const sectionLabels = {
     button: 'experience',
     title: 'Company name',
     position: 'Position',
-    start: 'Start date of employment',
-    end: 'End date of employment',
+    start: 'Start date',
+    end: 'End date',
     description: 'Description',
   },
   achieves: {
