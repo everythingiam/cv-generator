@@ -4,49 +4,43 @@ import CV from './components/CV/CV';
 import FormSection from './components/Forms/FormSection';
 import autoData from './components/autoData';
 import { useReactToPrint } from 'react-to-print';
+import structure from './dataStructure';
 
 function App() {
-  const emptyStructure = {
-    generalInfo: {
-      name: '',
-      description: '',
-      image: '',
-    },
-    education: [],
-    experience: [],
-    achieves: [],
-    projects: [],
-    additionally: [],
-  };
-
   const [data, setData] = useState(() => {
     const savedData = localStorage.getItem('formData');
-    const parsedData = savedData ? JSON.parse(savedData) : emptyStructure;
+    const parsedData = savedData ? JSON.parse(savedData) : structure;
 
     return {
-      ...emptyStructure,
+      ...structure,
       ...parsedData,
     };
   });
 
   const handleForm = (section, updatedSectionData) => {
     setData((prev) => {
-      if (section === 'generalInfo' || Array.isArray(updatedSectionData)) {
+      
+      if ( Array.isArray(updatedSectionData)) {
+        return { ...prev, [section]: { ...prev[section], data: updatedSectionData } };
+      }
+
+      if (section === 'generalInfo'){
         return { ...prev, [section]: updatedSectionData };
       }
-
-      const existingIndex = prev[section].findIndex(
+  
+      const existingIndex = prev[section].data.findIndex(
         (item) => item.id === updatedSectionData.id
       );
-
+  
       if (existingIndex !== -1) {
-        const updatedSection = [...prev[section]];
-        updatedSection[existingIndex] = updatedSectionData;
-        return { ...prev, [section]: updatedSection };
+        const updatedData = [...prev[section].data];
+        updatedData[existingIndex] = updatedSectionData;
+        return { ...prev, [section]: { ...prev[section], data: updatedData } };
       }
-
-      return { ...prev, [section]: [...prev[section], updatedSectionData] };
+  
+      return { ...prev, [section]: { ...prev[section], data: [...prev[section].data, updatedSectionData] } };
     });
+
   };
 
   useEffect(() => {
@@ -57,7 +51,7 @@ function App() {
     console.log('Данные - ', data);
   }, [data]);
   const clearCV = () => {
-    setData(emptyStructure);
+    setData(structure);
   };
 
   const autoFill = () => {
