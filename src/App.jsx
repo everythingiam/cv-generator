@@ -67,7 +67,10 @@ function App() {
   };
 
   const contentRef = useRef(null);
-  const reactToPrintFn = useReactToPrint({ contentRef });
+  const reactToPrintFn = useReactToPrint({
+    contentRef,
+    removeAfterPrint: false,
+  });
 
   return (
     <>
@@ -78,7 +81,7 @@ function App() {
         autoFill={autoFill}
         handlePrint={reactToPrintFn}
       />
-      <CV data={data} refer={contentRef}/>
+      <CV data={data} refer={contentRef} />
     </>
   );
 }
