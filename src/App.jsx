@@ -93,7 +93,7 @@ function App() {
         handlePrint={reactToPrintFn}
         message={showChangedMessage}
       />
-      <CV data={data} refer={contentRef} message={showChangedMessage}/>
+      <CV data={data} refer={contentRef}/>
     </>
   );
 }

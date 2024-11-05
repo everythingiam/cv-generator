@@ -269,10 +269,10 @@ p {
   left: 50%;
   transform: translateX(-50%);
   background-color: #000;
-  color: #fff;
+  color: #fff !important;
   padding: 1rem;
   border-radius: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
   z-index: 100;
 	display: none;
 }
