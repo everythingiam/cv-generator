@@ -18,6 +18,8 @@ function App() {
     };
   });
 
+  const [showChangedMessage, setShowChangedMessage] = useState(false);
+
   const handleForm = (section, updatedSectionData) => {
     setData((prev) => {
       if (Array.isArray(updatedSectionData)) {
@@ -52,17 +54,26 @@ function App() {
   };
 
   useEffect(() => {
+    if (showChangedMessage) {
+      const timer = setTimeout(() => {
+        setShowChangedMessage(false);
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showChangedMessage]);
+
+  useEffect(() => {
     localStorage.setItem('formData', JSON.stringify(data));
   }, [data]);
 
-  useEffect(() => {
-    console.log('Данные - ', data);
-  }, [data]);
   const clearCV = () => {
+    setShowChangedMessage(true);
     setData(structure);
   };
 
   const autoFill = () => {
+    setShowChangedMessage(true);
     setData(autoData);
   };
 
@@ -80,8 +91,9 @@ function App() {
         clearCV={clearCV}
         autoFill={autoFill}
         handlePrint={reactToPrintFn}
+        message={showChangedMessage}
       />
-      <CV data={data} refer={contentRef} />
+      <CV data={data} refer={contentRef} message={showChangedMessage}/>
     </>
   );
 }

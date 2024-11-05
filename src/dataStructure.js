@@ -3,6 +3,7 @@ const structure = {
     name: '',
     description: '',
     image: '',
+    contact: ''
   },
   education: {
     data: [],

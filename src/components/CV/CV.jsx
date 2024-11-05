@@ -18,7 +18,7 @@ export default function CV({ data, refer }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleClick = () => {
-    setIsVisible(prevState => !prevState); 
+    setIsVisible((prevState) => !prevState);
   };
 
   return (
@@ -33,7 +33,6 @@ export default function CV({ data, refer }) {
           {!isFull && (
             <div className="startCV">Start filling your CV with forms!</div>
           )}
-
           <CVHeader data={data.generalInfo} />
           <CVMain data={data} />
         </div>

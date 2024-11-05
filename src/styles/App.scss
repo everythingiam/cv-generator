@@ -262,7 +262,25 @@ p {
   transition: opacity 300ms ease, transform 300ms ease;
 }
 
+.changed-message {
+  position: fixed;
+	font-family: 'TT Med';
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  z-index: 100;
+	display: none;
+}
+
 @media (max-width: 1100px) {
+	.changed-message{
+		display: block;
+	}
   #root {
     justify-content: center;
   }
@@ -276,3 +294,4 @@ p {
 		}
 	}
 }
+

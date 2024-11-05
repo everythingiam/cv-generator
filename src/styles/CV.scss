@@ -66,18 +66,24 @@
   header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 
     .left {
-      display: block;
+      display: flex;
+      flex-direction: column;
       max-width: 29rem;
 
-      p {
+      p,
+      a {
         font-size: $h2-size;
         color: $lighter-gray;
         max-width: 26rem;
         font-family: 'TT';
       }
+    }
+    a {
+      justify-self: flex-end;
+      margin-top: auto;
     }
 
     img {

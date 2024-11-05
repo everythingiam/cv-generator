@@ -8,6 +8,7 @@ export default function FormSection({
   clearCV,
   autoFill,
   handlePrint,
+  message
 }) {
   // const exportToPDF = () => {
   //   const element = document.querySelector('.cv');
@@ -41,6 +42,8 @@ export default function FormSection({
       <a href="https://github.com/everythingiam/cv-generator" target="_blank">
         Watch on Github <span style={{ marginTop: '-1px' }}>→</span>
       </a>
+      {message && <p className="changed-message">Changed!</p>}
+
     </div>
   );
 }

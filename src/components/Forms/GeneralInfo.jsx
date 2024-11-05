@@ -5,24 +5,32 @@ export default function GeneralInfo({ handleForm, data }) {
   const [name, setName] = useState(data.name || '');
   const [description, setDescription] = useState(data.description || '');
   const [image, setImage] = useState(data.image || '');
+  const [contact, setContact] = useState(data.contact || '');
   const [fileInputKey, setFileInputKey] = useState(Date.now());
 
   useEffect(() => {
     setName(data.name || '');
     setDescription(data.description || '');
     setImage(data.image || '');
+    setContact(data.contact || '');
   }, [data]);
 
   const handleName = (e) => {
     const newName = e.target.value;
     setName(newName);
-    handleForm('generalInfo', { name: newName, description, image });
+    handleForm('generalInfo', { name: newName, description, image, contact });
   };
 
   const handleDescription = (e) => {
     const newDescription = e.target.value;
     setDescription(newDescription);
-    handleForm('generalInfo', { name, description: newDescription, image });
+    handleForm('generalInfo', { name, description: newDescription, image, contact });
+  };
+
+  const handleContact = (e) => {
+    const newContact = e.target.value;
+    setContact(newContact);
+    handleForm('generalInfo', { name, description, image, contact: newContact });
   };
 
   const deleteImage = () => {
@@ -45,7 +53,7 @@ export default function GeneralInfo({ handleForm, data }) {
         reader.onload = () => {
           const imageData = reader.result;
           setImage(imageData);
-          handleForm('generalInfo', { name, description, image: imageData });
+          handleForm('generalInfo', { name, description, image: imageData, contact });
         };
         reader.readAsDataURL(file);
       } else {
@@ -79,6 +87,17 @@ export default function GeneralInfo({ handleForm, data }) {
             value={description}
             className={description !== '' ? 'filled' : ''}
             onChange={handleDescription}
+          />
+        </li>
+        <li className="text">
+          <label htmlFor="contact">Contact</label>
+          <input
+            type="text"
+            name="contact"
+            id="contact"
+            value={contact}
+            className={contact !== '' ? 'filled' : ''}
+            onChange={handleContact}
           />
         </li>
         <li className="text row">

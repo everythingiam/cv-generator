@@ -6,6 +6,7 @@ const autoData = {
     description:
       'Fullstack-developer from Saint-Petersburg with design passion',
     image: Image,
+    contact: 't.me/a_li_nus',
   },
   education: {
     data: [
